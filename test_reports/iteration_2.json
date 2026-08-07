@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend-only validation on /meus-cursos for card reordering in two categories and coherence of 'O que este curso oferece' offers text with real Player recipes. All required checks passed via Playwright.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verifications": {
+    "category_order_vendas_diarias": ["catalog-card-bolos-caseiros", "catalog-card-iogurtes-gourmet", "catalog-card-brigadeiro-gourmet"],
+    "category_order_encomendas_eventos": ["catalog-card-geladinhos-gourmet", "catalog-card-plr-pascoa", "catalog-card-receitas-kids"],
+    "category_order_nichos_premium": ["catalog-card-receitas-lactose", "catalog-card-receitas-zero-gluten", "catalog-card-receitas-low-carb", "catalog-card-receitas-diabeticos"],
+    "offers_bolos_caseiros_contains_20_receitas_chocolate_leite_ninho_fuba_brigadeiro": true,
+    "offers_iogurtes_contains_grego_natural_gourmet_ninho_nutella": true,
+    "offers_geladinhos_contains_acai_bis_brigadeiro_prestigio_kit_kat": true,
+    "offers_pascoa_contains_ninho_morango_ferrero_mousse_oreo": true,
+    "offers_kids_contains_brigadeiro_cookies_cupcake_bolinho_cacau": true,
+    "player_navigation_from_bolos_caseiros": "URL -> /player/bolos-caseiros; page renders 'Bolos Caseiros Lucrativos' with 'Módulo 03 · Receitas' module visible (confirms offers coerentes com o Player)."
+  },
+  "test_report_links": ["/app/test_reports/player_bolos.png"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Dashboard.jsx tem 525 linhas com CATEGORIES hardcoded — considere extrair para /data/categories.js para manter Dashboard focada em rendering (não bloqueante)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "BETA_MODE permite acesso direto a /meus-cursos sem login. Cards têm data-testid=catalog-card-<slug>. Conteúdo é CSR (ssr:false) — aguarde ~3s após load. Ordem dos cursos e textos de offers estão atualmente corretos conforme spec."
+}
