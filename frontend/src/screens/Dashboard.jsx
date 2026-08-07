@@ -388,9 +388,7 @@ function CourseCard({ entry, course, purchased, index, onEnter, onBuy }) {
         <img
           src={course.cover_image}
           alt={course.title}
-          className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-105 ${
-            purchased ? "" : "grayscale contrast-75 opacity-70"
-          }`}
+          className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
           loading="lazy"
         />
         <div
@@ -400,14 +398,6 @@ function CourseCard({ entry, course, purchased, index, onEnter, onBuy }) {
               : "bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-950/30"
           }`}
         />
-
-        {!purchased && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid h-14 w-14 place-items-center rounded-full border border-stone-700 bg-stone-950/70 backdrop-blur-md">
-              <Lock className="h-6 w-6 text-stone-300" />
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Body */}

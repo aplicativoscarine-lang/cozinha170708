@@ -1,5 +1,5 @@
 import React from "react";
-import { ChefHat, Mail, MessageCircle, FileText, ShieldCheck } from "lucide-react";
+import { ChefHat, Mail, FileText, ShieldCheck } from "lucide-react";
 
 // Contatos provisórios da fase beta.
 // Atualize conforme os canais oficiais forem criados.
@@ -87,14 +87,6 @@ export default function Footer() {
                 </a>
               ) : (
                 <span className="text-[#8A7566]">E-mail em breve</span>
-              )}
-            </li>
-            <li className="flex items-center gap-2" data-testid="footer-whatsapp">
-              <MessageCircle className="h-3.5 w-3.5" />
-              {CONTACT.whatsapp ? (
-                <span className="font-medium">{CONTACT.whatsapp}</span>
-              ) : (
-                <span className="text-[#8A7566]">WhatsApp em breve</span>
               )}
             </li>
           </ul>

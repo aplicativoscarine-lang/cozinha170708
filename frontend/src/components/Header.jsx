@@ -152,6 +152,15 @@ export default function Header() {
   // sem abrir a página real, que exige login.
   const showcaseMode = !user && (location.pathname === "/" || location.pathname === "/entrar" || location.pathname === "/login" || location.pathname === "/planos");
 
+  // Páginas públicas (landing/entrar/planos) mostram "Entrar com Google".
+  // Nas páginas internas o CTA vira "Sair" e retorna ao Dashboard (/meus-cursos),
+  // nunca à página de vendas.
+  const onPublicPage =
+    location.pathname === "/" ||
+    location.pathname.startsWith("/entrar") ||
+    location.pathname.startsWith("/login") ||
+    location.pathname.startsWith("/planos");
+
   // Flat list para o menu mobile / user dropdown
   const flatItems = NAV_GROUPS.flatMap((g) =>
     g.items.map((it) => ({ ...it, groupLabel: g.label }))
@@ -189,16 +198,29 @@ export default function Header() {
         <div className="flex items-center gap-3">
           {user && <PlantaoNotificationBell />}
           {!user ? (
-            <Button
-              data-testid="login-btn"
-              onClick={() => navigate("/entrar")}
-              className="rounded-full px-6 font-semibold text-white shadow-[0_4px_16px_rgba(162,77,42,0.35)] transition-all"
-              style={{ backgroundColor: "#A24D2A" }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#8A3F21"}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#A24D2A"}
-            >
-              Entrar com Google
-            </Button>
+            onPublicPage ? (
+              <Button
+                data-testid="login-btn"
+                onClick={() => navigate("/entrar")}
+                className="rounded-full px-6 font-semibold text-white shadow-[0_4px_16px_rgba(162,77,42,0.35)] transition-all"
+                style={{ backgroundColor: "#A24D2A" }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#8A3F21"}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#A24D2A"}
+              >
+                Entrar com Google
+              </Button>
+            ) : (
+              <Button
+                data-testid="exit-btn"
+                onClick={() => navigate("/meus-cursos")}
+                className="rounded-full px-6 font-semibold text-white shadow-[0_4px_16px_rgba(162,77,42,0.35)] transition-all"
+                style={{ backgroundColor: "#A24D2A" }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#8A3F21"}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#A24D2A"}
+              >
+                <LogOut className="mr-2 h-4 w-4" /> Sair
+              </Button>
+            )
           ) : (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
