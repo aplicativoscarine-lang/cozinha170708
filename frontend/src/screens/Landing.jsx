@@ -11,13 +11,12 @@ import {
   Store,
   ShieldCheck,
   Loader2,
-  Lock,
 } from "lucide-react";
 
 // ---------- Configuração comercial única ----------
 const PRICE_TOTAL = 57;
 const PRICE_INSTALLMENTS = 12;
-const PRICE_INSTALLMENT_VALUE = 4.75; // 12 x 4,75 = 57 (sem juros)
+const PRICE_INSTALLMENT_VALUE = 5.70; // 12x de R$ 5,70
 const STRIPE_LOOKUP_KEY = "cozinha_lucrativa_57";
 
 // Ícone visual do topo de cada card — reforça a "capitânia" da coluna
@@ -117,7 +116,7 @@ function PriceBlock({ testId }) {
         à vista
       </span>
       <span className="w-full text-sm text-[#5F4A3F]">
-        ou <strong>{PRICE_INSTALLMENTS}x de {formatBRL(PRICE_INSTALLMENT_VALUE)}</strong> sem juros · pagamento seguro Stripe
+        ou <strong>{PRICE_INSTALLMENTS}x de {formatBRL(PRICE_INSTALLMENT_VALUE)}</strong>
       </span>
     </div>
   );
@@ -218,10 +217,6 @@ export default function Landing() {
 
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <CTAButton testId="hero-cta" size="lg" start={start} loading={loading} />
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5F4A3F]">
-                <Lock className="h-3.5 w-3.5" strokeWidth={2.4} />
-                Checkout hospedado pelo Stripe
-              </span>
             </div>
 
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#4A3529]">
