@@ -43,14 +43,6 @@ export const NAV_GROUPS = [
         description:
           "Envie suas dúvidas para a professora e navegue por respostas de outras confeiteiras na biblioteca.",
       },
-      {
-        to: "/bonus-extra",
-        label: "Bônus",
-        emoji: "🎁",
-        testId: "nav-bonus-extra",
-        description:
-          "Kit de logotipo, materiais extras e conteúdos-surpresa que aceleram sua marca desde o dia 1.",
-      },
     ],
   },
   {
@@ -110,6 +102,14 @@ export const NAV_GROUPS = [
         testId: "nav-minha-vitrine",
         description:
           "Uma vitrine pública com o seu link, mostrando produtos, preços e formas de contato pro cliente comprar.",
+      },
+      {
+        to: "/bonus-extra",
+        label: "Bônus",
+        emoji: "🎁",
+        testId: "nav-bonus-extra",
+        description:
+          "Kit de logotipo, materiais extras e conteúdos-surpresa que aceleram sua marca desde o dia 1.",
       },
     ],
   },
