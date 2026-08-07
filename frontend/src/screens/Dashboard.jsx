@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  Lock, ArrowRight, Loader2, ShoppingCart, Check, Clock, Layers, Sparkles, Star,
+  Lock, ArrowRight, Loader2, ShoppingCart, Clock, Layers, Sparkles, Star,
 } from "lucide-react";
 
 /* ============================================================
@@ -400,38 +400,6 @@ function CourseCard({ entry, course, purchased, index, onEnter, onBuy }) {
               : "bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-950/30"
           }`}
         />
-
-        <div className="absolute left-4 top-4">
-          {purchased ? (
-            <div
-              data-testid={`badge-owned-${entry.slug}`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3 py-1 backdrop-blur-md"
-            >
-              <Check className="h-3 w-3 text-emerald-300" />
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-emerald-300">
-                adquirido
-              </span>
-            </div>
-          ) : (
-            <div
-              data-testid={`badge-locked-${entry.slug}`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-stone-700 bg-stone-950/80 px-3 py-1 backdrop-blur-md"
-            >
-              <Lock className="h-3 w-3 text-stone-400" />
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-300">
-                não adquirido
-              </span>
-            </div>
-          )}
-        </div>
-
-        <span
-          className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full text-2xl shadow-md"
-          style={{ background: "rgba(244,225,213,0.95)" }}
-          aria-hidden
-        >
-          {entry.emoji}
-        </span>
 
         {!purchased && (
           <div className="absolute inset-0 flex items-center justify-center">
